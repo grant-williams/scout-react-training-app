@@ -18,19 +18,6 @@ test("renders links on nav bar", () => {
 	expect(pokedexLink).toBeInTheDocument();
 });
 
-test("routes to Pokedex page", () => {
-	const history = createMemoryHistory();
-	history.push("/pokedex");
-	const { getByTestId } = render(
-		<Router history={history}>
-			<App />
-		</Router>
-	);
-	const pokedexHeader = getByTestId("pokedex-header");
-
-	expect(pokedexHeader).toBeInTheDocument();
-});
-
 test("landing on a bad page shows NotFound page", () => {
 	const history = createMemoryHistory();
 	history.push("/some/bad/route");
