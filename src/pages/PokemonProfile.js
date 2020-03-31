@@ -27,7 +27,7 @@ const PokemonProfile = () => {
 			<h1 className="display-3 capitalize" data-testid="profile-header">
 				{name}
 			</h1>
-			{loading ? <p>Loading...</p> : profile && <ProfileInfo profile={profile} />}
+			{profile && <ProfileInfo profile={profile} />}
 		</div>
 	);
 };
