@@ -6,7 +6,7 @@ const ReviewForm = ({ onSubmit }) => {
 
 	return (
 		<div className="container">
-			<form className="form" onSubmit={handleSubmit(onSubmit)}>
+			<form className="form" onSubmit={handleSubmit(onSubmit)} data-testid="review-form">
 				<label>Rating: </label>
 
 				<div className="margin">
@@ -61,6 +61,7 @@ const ReviewForm = ({ onSubmit }) => {
 						</label>
 						<label>
 							<input
+								data-testid="perfect-radio"
 								name="Rating"
 								type="radio"
 								value="Perfect"
@@ -72,7 +73,7 @@ const ReviewForm = ({ onSubmit }) => {
 							Perfect
 						</label>
 					</div>
-					<div className="error">
+					<div className="error" data-testid="radio-error">
 						{errors.Rating && errors.Rating.type === "validate" && (
 							<span>You might want to think twice about that rating.</span>
 						)}
@@ -84,6 +85,7 @@ const ReviewForm = ({ onSubmit }) => {
 					<label>Message: </label>
 					<div>
 						<textarea
+							data-testid="message-field"
 							id="Message"
 							placeholder="e.g. 10/10 would recommend."
 							name="Message"
@@ -93,14 +95,14 @@ const ReviewForm = ({ onSubmit }) => {
 						/>
 					</div>
 
-					<div className="error">
+					<div className="error" data-testid="message-error">
 						{errors.Message && errors.Message.type === "minLength" && <span>This message is too short.</span>}
 						{errors.Message && errors.Message.type === "maxLength" && <span>This message is too long.</span>}
 						{errors.Message && errors.Message.type === "required" && <span>This field is required.</span>}
 					</div>
 				</div>
 
-				<input type="submit" className="margin" />
+				<input type="submit" className="margin" data-testid="submit-button"/>
 			</form>
 		</div>
 	);

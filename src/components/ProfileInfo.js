@@ -4,7 +4,7 @@ const ProfileInfo = ({ profile }) => {
 	const { sprites, id, height, weight, types } = profile;
 
 	return (
-		<div className="container capitalize">
+		<div className="container capitalize" data-testid="profile-info"> 
 			<img src={sprites.front_default} alt="front-sprite" />
 			<p className="lead">Id: {id}</p>
 			<p className="lead">Height: {height}</p>

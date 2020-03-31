@@ -9,7 +9,7 @@ const PokemonCard = ({ pokemon }) => {
 	};
 
 	return (
-		<div className="pokemon capitalize" onClick={() => handleClick()}>
+		<div className="pokemon capitalize" onClick={() => handleClick()} data-testid="pokemon-card">
 			<p>{pokemon.name}</p>
 		</div>
 	);
