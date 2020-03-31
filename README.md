@@ -1,20 +1,31 @@
 This project was created for the React Training Badge on Scout and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Badge Requirements
- - 1 API integration with an API of your choice
- - 1 editable form with real-time input validation
+ - 1 API integration with an API of your choice - COMPLETE
+   - API Calls:
+     - Pokedex.js
+     - PokemonProfile.js
+ - 1 editable form with real-time input validation - COMPLETE
    - Forms:
-     - ContactUs.js
- - At least 2 pages using react-router to navigate between them
+     - ReviewForm.js
+ - At least 2 pages using react-router to navigate between them - COMPLETE
    - Pages:
      - Home.js
      - Pokedex.js
+     - PokemonProfile.js
      - NotFound.js
- - At least 3 components with one parent and one child
+ - At least 3 components with one parent and one child - COMPLETE
    - Child components:
      - Nav.js
- - Use hooks in at least one component
- - Have at least 2 unit tests
+     - PokemonCard.js
+     - ProfileInfo.js
+     - ReviewForm.js
+ - Use hooks in at least one component - COMPLETE
+   - Hooks uses:
+     - Home.js
+     - Pokedex.js
+     - PokemonProfile.js
+ - Have at least 2 unit tests - COMPLETE
    - Tests:
      - App.test.js
 
