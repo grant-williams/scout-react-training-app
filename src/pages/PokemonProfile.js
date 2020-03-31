@@ -5,7 +5,6 @@ import ProfileInfo from "../components/ProfileInfo";
 
 const PokemonProfile = () => {
 	const [profile, setProfile] = useState(null);
-	const [loading, setLoading] = useState(true);
 	const { name } = useParams();
 
 	useEffect(() => {
@@ -13,7 +12,6 @@ const PokemonProfile = () => {
 	}, []);
 
 	const fetchProfileData = () => {
-		setLoading(true);
 		axios
 			.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
 			.then(response => {
@@ -21,8 +19,7 @@ const PokemonProfile = () => {
 			})
 			.catch(error => {
 				throw error;
-			})
-			.finally(() => setLoading(false));
+			});
 	};
 
 	return (

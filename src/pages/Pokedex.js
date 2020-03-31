@@ -4,14 +4,12 @@ import PokemonCard from "../components/PokemonCard";
 
 const Pokedex = () => {
 	const [pokemonList, setPokemonList] = useState([]);
-	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		fetchPokemonData();
 	}, []);
 
 	const fetchPokemonData = () => {
-		setLoading(true);
 		axios
 			.get("https://pokeapi.co/api/v2/pokemon/?limit=151")
 			.then(response => {
@@ -19,8 +17,7 @@ const Pokedex = () => {
 			})
 			.catch(error => {
 				throw error;
-			})
-			.finally(() => setLoading(false));
+			});
 	};
 
 	return (
@@ -30,9 +27,7 @@ const Pokedex = () => {
 			</h1>
 			<p className="lead">This page has all Pokemon from the first generation.</p>
 
-			{loading ? (
-				<p>Loading...</p>
-			) : pokemonList.length > 0 ? (
+			{pokemonList.length > 0 ? (
 				<div className="pokemonList">
 					{pokemonList.map((pokemon, index) => (
 						<PokemonCard pokemon={pokemon} key={index} />
