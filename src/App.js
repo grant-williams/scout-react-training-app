@@ -3,10 +3,11 @@ import { Switch, Route } from "react-router-dom";
 
 import "./App.css";
 
+import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Pokedex from "./pages/Pokedex";
-import Nav from "./components/Nav";
+import PokemonProfile from "./pages/PokemonProfile";
 
 function App() {
 	return (
@@ -22,8 +23,11 @@ function App() {
 					<Route exact path="/">
 						<Home />
 					</Route>
-					<Route path="/pokedex">
+					<Route exact path="/pokedex">
 						<Pokedex />
+					</Route>
+					<Route path="/pokedex/:name">
+						<PokemonProfile />
 					</Route>
 					<Route path="*">
 						<NotFound />
