@@ -1,3 +1,4 @@
+# scout-react-training-app
 This project was created for the React Training Badge on Scout and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Badge Requirements
