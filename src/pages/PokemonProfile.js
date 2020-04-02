@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import ProfileInfo from "../components/ProfileInfo";
+import fetchProfileData from "../api/PokemonProfileAPI";
 
 const PokemonProfile = () => {
 	const [profile, setProfile] = useState(null);
 	const { name } = useParams();
 
 	useEffect(() => {
-		fetchProfileData();
-	}, []);
-
-	const fetchProfileData = () => {
-		axios
-			.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
-			.then(response => {
-				setProfile(response.data);
-			})
-			.catch(error => {
-				throw error;
-			});
-	};
+		fetchProfileData(name)
+			.then(response => setProfile(response.data))
+			.catch(error => console.log(error));
+	}, [name]);
 
 	return (
 		<div className="page-header">

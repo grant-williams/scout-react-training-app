@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import PokemonCard from "../components/PokemonCard";
+import fetchPokemonData from "../api/PokemonListAPI";
 
 const Pokedex = () => {
 	const [pokemonList, setPokemonList] = useState([]);
 
 	useEffect(() => {
-		fetchPokemonData();
+		fetchPokemonData()
+			.then(response => setPokemonList(response.data.results))
+			.catch(error => console.log(error));
 	}, []);
-
-	const fetchPokemonData = () => {
-		axios
-			.get("https://pokeapi.co/api/v2/pokemon/?limit=151")
-			.then(response => {
-				setPokemonList(response.data.results);
-			})
-			.catch(error => {
-				throw error;
-			});
-	};
 
 	return (
 		<div className="page-header">
